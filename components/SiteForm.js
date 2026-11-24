@@ -76,6 +76,21 @@ export default function SiteForm({ action, site }) {
         <span>Notes</span>
         <textarea name="notes" rows={3} defaultValue={site?.notes || ''} placeholder="Hosting provider, cPanel URL, renewal dates… (no passwords)" />
       </label>
+      <fieldset className="f" style={{ border: '1px solid var(--line, #ddd)', borderRadius: 8, padding: '10px 14px' }}>
+        <legend style={{ padding: '0 6px' }}>Public portfolio</legend>
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <input type="checkbox" name="showcase" defaultChecked={Boolean(site?.showcase)} />
+          <span>Show this site on my portfolio</span>
+        </label>
+        <small>
+          Only the name, address, tech stack, the line below and whether it is online are shared — never the client, notes or
+          security details. Ask the client first.
+        </small>
+        <label className="f" style={{ marginTop: 10 }}>
+          <span>One line for the portfolio</span>
+          <input type="text" name="blurb" maxLength={240} defaultValue={site?.blurb || ''} placeholder="e.g. Custom theme and donation pages for a youth NGO in Mukuru" />
+        </label>
+      </fieldset>
       <Submit busy="Saving and checking…">{site?.id ? 'Save changes' : 'Add site'}</Submit>
     </form>
   );

@@ -62,6 +62,9 @@ export async function saveSite(prev, formData) {
     healthPath: String(formData.get('healthPath') || '').trim().slice(0, 200) || '/api/health',
     interval: [5, 10, 15, 30, 60].includes(Number(formData.get('interval'))) ? Number(formData.get('interval')) : 5,
     notes: String(formData.get('notes') || '').trim().slice(0, 1000),
+    // Public portfolio: off unless ticked. Only name, address, stack and this blurb are ever shown.
+    showcase: formData.get('showcase') === 'on',
+    blurb: String(formData.get('blurb') || '').trim().slice(0, 240),
   };
   if (type === 'keyword' && !site.keyword) return { error: 'Enter the text that must appear on the page.' };
 

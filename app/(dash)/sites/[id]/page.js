@@ -161,6 +161,8 @@ export default async function SitePage({ params, searchParams }) {
               <dd>{site.stack || '—'}</dd>
               <dt>Client</dt>
               <dd>{site.client || '—'}</dd>
+              <dt>On portfolio</dt>
+              <dd>{site.showcase ? 'Yes' : 'No'}</dd>
               <dt>SSL certificate</dt>
               <dd><SslText st={st} /></dd>
               <dt>Checked every</dt>
